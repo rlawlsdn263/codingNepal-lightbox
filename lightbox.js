@@ -3,8 +3,9 @@ const gallery = document.querySelectorAll(".gallery .image");
 const previewBox = document.querySelector(".preview-box");
 const previewImg = previewBox.querySelector("img");
 const closeIcon = previewBox.querySelector(".icon");
-currentImg = previewBox.querySelector(".current-img");
-totalImg = previewBox.querySelector(".total-img");
+const currentImg = previewBox.querySelector(".current-img");
+const totalImg = previewBox.querySelector(".total-img");
+const shadow = document.querySelector(".shadow");
 
 window.onload = () => {
   //once window loaded
@@ -18,7 +19,6 @@ window.onload = () => {
         currentImg.textContent = newIndex + 1; //newIndex값 전달하기
         let selectedImgUrl = gallery[newIndex].querySelector("img").src; //클릭한 이미지 URL
         previewImg.src = selectedImgUrl; //클릭한 이미지 URL을 previewImg한테 넘겨주기
-        console.log(selectedImgUrl);
       }
 
       const prevBtn = document.querySelector(".prev");
@@ -50,14 +50,18 @@ window.onload = () => {
         }
       };
 
-      preview();
+      preview(); //상위함수 호출
       previewBox.classList.add("show");
+      shadow.style.display = "block";
+      document.querySelector("body").style.overflow = "hidden"; //모바일 화면에서 모달창 키우면 스크롤바 숨기기
 
       closeIcon.onclick = () => {
         newIndex = clickImgIndex;
         prevBtn.style.display = "block";
         nextBtn.style.display = "block";
         previewBox.classList.remove("show");
+        shadow.style.display = "none";
+        document.querySelector("body").style.overflow = "auto"; //스크롤바 복귀
       };
     };
   }
