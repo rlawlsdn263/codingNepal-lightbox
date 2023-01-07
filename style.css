@@ -28,6 +28,7 @@ body {
 .gallery span {
   display: flex;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -44,6 +45,80 @@ body {
 
 .gallery .image:hover img {
   transform: scale(1.1);
+}
+
+/* 이미지 모달창 */
+.preview-box {
+  position: fixed;
+  max-width: 700px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 0 5px 5px 5px;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.preview-box .details {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px 12px 10px;
+  justify-content: space-between;
+}
+
+.preview-box .details .icon {
+  color: #007bff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.details .title {
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.details .title p {
+  margin: 0 5px;
+}
+
+.details .title p.current-img {
+  font-weight: 500;
+}
+
+.preview-box .img-box {
+  display: flex;
+  width: 100%;
+}
+
+.img-box .slide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+  width: 60px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.img-box .slide.prev {
+  left: 0;
+}
+
+.img-box .slide.next {
+  right: 0;
+}
+
+.preview-box .img-box img {
+  width: 100%;
+  border-radius: 0 0 3px 3px;
 }
 
 
